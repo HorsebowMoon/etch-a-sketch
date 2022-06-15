@@ -1,3 +1,12 @@
+function deleteChild(element) {
+    let queryElement = document.getElementById(element);
+    let child = queryElement.lastElementChild;
+    while (child) {
+        queryElement.removeChild(child);
+        child = queryElement.lastElementChild;
+    }
+}
+
 const container = document.getElementById('container');
 const body = document.getElementById('body');
 
@@ -9,7 +18,10 @@ numberButton.addEventListener("click", () => {
     let userNumber = Number(prompt("How many squares per side do you want to see?: "));
     if (userNumber > 100){
         alert("The limit is 100 squares per side. Try using another number.");
-    } 
+    } else {
+        //clean elements from grid
+        deleteChild("container");
+    }
 });
 
 body.appendChild(numberButton);

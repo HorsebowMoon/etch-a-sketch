@@ -1,5 +1,11 @@
 /*Create a 16x16 square grids*/
 
+#body{
+    display: flex;
+    flex-direction: column-reverse;
+    
+}
+
 #container {
     display: flex;
     flex-wrap: wrap;

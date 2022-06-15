@@ -14,14 +14,17 @@ button{
 }
 
 #container {
-    display: flex;
-    flex-wrap: wrap;
-    min-width: 960px;
+    min-width: 1000px;
    
 }
 
+.line{
+    display: flex;
+    flex-grow: 1;
+}
+
 .square{
-  
+    flex-grow: 1;
     height: 50px;
     flex-shrink: 0;
     border: 1px solid black;

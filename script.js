@@ -10,12 +10,8 @@ body.appendChild(numberButton);
 //Create a 256 square div
 for (let i=1; i <= 256; i++) {
     let div = document.createElement('div');
-    div.style.width = "50px";
-    div.style.height = "50px";
-    div.style.border = "1px solid black";
-    div.style.backgroundColor = "lightblue";
     div.className = "square";
-    //div.textContent = div.className;
+    div.textContent = i
     container.appendChild(div);
 }
 

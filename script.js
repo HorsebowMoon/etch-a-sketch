@@ -4,6 +4,14 @@ const body = document.getElementById('body');
 //create button
 const numberButton = document.createElement('button');
 numberButton.textContent = "click me";
+
+numberButton.addEventListener("click", () => {
+    let userNumber = Number(prompt("How many squares per side do you want to see?: "));
+    if (userNumber > 100){
+        alert("The limit is 100 squares per side. Try using another number.");
+    } 
+});
+
 body.appendChild(numberButton);
 
 

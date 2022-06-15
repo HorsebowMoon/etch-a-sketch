@@ -16,6 +16,10 @@ function createGrid(number){
     }
 }
 
+function squareWidth(number){
+     return eWidth = (1/number) * 100;
+}
+
 const container = document.getElementById('container');
 const body = document.getElementById('body');
 
@@ -31,9 +35,10 @@ numberButton.addEventListener("click", () => {
         //clean elements from grid
         deleteChild("container");
         //create new grid
-        for (let i=0; i<= userNumber * userNumber; i++) {
-            let 
-        }
+       createGrid(userNumber);
+       let square = document.querySelectorAll(".square");
+
+       square.style.width 
     }
 });
 

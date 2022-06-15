@@ -21,9 +21,13 @@ function createLine(number){
     for (let i=1; i <= number; i++) {
         let div = document.createElement('div');
         div.className = "square";
-        div.textContent = i
         divLine.appendChild(div);
     }
+}
+
+function random_rgba() {
+    let o = Math.round, r = Math.random, s = 255;
+    return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
 }
 
 
@@ -33,7 +37,7 @@ function changeColor(element) {
     let divArray = document.querySelectorAll(element);
     divArray.forEach((square) => {
             square.addEventListener("mouseenter", () =>{
-                square.style.backgroundColor = "red"
+                square.style.backgroundColor = random_rgba();
             })
         });
 }
@@ -41,8 +45,9 @@ function changeColor(element) {
 
 const container = document.getElementById('container');
 const body = document.getElementById('body');
-//Create a 256 square div
-createGrid(16);
+
+
+createGrid(10);
 changeColor(".square");
 
 //create button

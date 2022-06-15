@@ -7,6 +7,15 @@ function deleteChild(element) {
     }
 }
 
+function createGrid(number){
+    for (let i=1; i <= number* number; i++) {
+        let div = document.createElement('div');
+        div.className = "square";
+        div.textContent = i
+        container.appendChild(div);
+    }
+}
+
 const container = document.getElementById('container');
 const body = document.getElementById('body');
 
@@ -21,6 +30,10 @@ numberButton.addEventListener("click", () => {
     } else {
         //clean elements from grid
         deleteChild("container");
+        //create new grid
+        for (let i=0; i<= userNumber * userNumber; i++) {
+            let 
+        }
     }
 });
 
@@ -28,12 +41,8 @@ body.appendChild(numberButton);
 
 
 //Create a 256 square div
-for (let i=1; i <= 256; i++) {
-    let div = document.createElement('div');
-    div.className = "square";
-    div.textContent = i
-    container.appendChild(div);
-}
+createGrid(16);
+
 
 //Hover effect that changes square color
 const divArray = document.querySelectorAll(".square");

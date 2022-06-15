@@ -13,7 +13,7 @@ function createGrid(number){
         let div = document.createElement('div');
         div.className = "square";
         div.textContent = i
-        div.style.width = Math.round((1/number)*100);
+        div.style.width = (Math.round((1/number)*100)) + '%';
         container.appendChild(div);
     }
 }

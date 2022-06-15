@@ -8,17 +8,16 @@ function deleteChild(element) {
 }
 
 function createGrid(number){
+
     for (let i=1; i <= number* number; i++) {
         let div = document.createElement('div');
         div.className = "square";
         div.textContent = i
+        div.style.width = Math.round((1/number)*100);
         container.appendChild(div);
     }
 }
 
-function squareWidth(number){
-     return eWidth = (1/number) * 100;
-}
 
 const container = document.getElementById('container');
 const body = document.getElementById('body');
@@ -36,9 +35,6 @@ numberButton.addEventListener("click", () => {
         deleteChild("container");
         //create new grid
        createGrid(userNumber);
-       let square = document.querySelectorAll(".square");
-
-       square.style.width 
     }
 });
 

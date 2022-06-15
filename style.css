@@ -21,9 +21,10 @@ button{
 }
 
 .square{
-    min-width: 6%;
+  
     height: 50px;
     flex-shrink: 0;
     border: 1px solid black;
     background-color: lightblue;
+    
 }

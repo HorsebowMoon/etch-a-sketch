@@ -9,18 +9,41 @@ function deleteChild(element) {
 
 function createGrid(number){
 
-    for (let i=1; i <= number* number; i++) {
+    for (let i=0; i < number; i++) {
+        createLine(number);
+    }
+}
+
+function createLine(number){
+    let divLine = document.createElement('div');
+    divLine.className = "line"
+    container.appendChild(divLine);
+    for (let i=1; i <= number; i++) {
         let div = document.createElement('div');
         div.className = "square";
         div.textContent = i
-        div.style.width = (Math.round((1/number)*100)) + '%';
-        container.appendChild(div);
+        divLine.appendChild(div);
     }
+}
+
+
+//Hover effect that changes square color
+function changeColor(element) {
+
+    let divArray = document.querySelectorAll(element);
+    divArray.forEach((square) => {
+            square.addEventListener("mouseenter", () =>{
+                square.style.backgroundColor = "red"
+            })
+        });
 }
 
 
 const container = document.getElementById('container');
 const body = document.getElementById('body');
+//Create a 256 square div
+createGrid(16);
+changeColor(".square");
 
 //create button
 const numberButton = document.createElement('button');
@@ -35,21 +58,14 @@ numberButton.addEventListener("click", () => {
         deleteChild("container");
         //create new grid
        createGrid(userNumber);
+       changeColor(".square");
     }
 });
 
 body.appendChild(numberButton);
 
 
-//Create a 256 square div
-createGrid(16);
 
 
-//Hover effect that changes square color
-const divArray = document.querySelectorAll(".square");
-divArray.forEach((square) => {
-        square.addEventListener("mouseenter", () =>{
-            square.style.backgroundColor = "red"
-        })
-    });
+
 

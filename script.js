@@ -38,7 +38,7 @@ function blackColorGrid(){ //changes squares color to black
 });
 }
 
-function blackMode(){
+function blackMode(){ //black mode button
     blackColorButton.addEventListener("click", () => {
         blackColorGrid()
     });
@@ -66,12 +66,12 @@ function resetGrid(){ //turns the grid back to 16x16
     
 }
 
-function randomRGBA(){
+function randomRGBA(){ //generates random color
     let o = Math.round, r = Math.random, s = 255;
     return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
 }
 
-function rainbowColor(){
+function rainbowColor(){ //rainbow color mode
     const squares = document.querySelectorAll('div.square');
     
     squares.forEach((square) => {
@@ -81,7 +81,7 @@ function rainbowColor(){
     })
 }
 
-function rainbowButton(){
+function rainbowButton(){ //activates rainbow color mode
     rainbowColorButton.addEventListener("click", () =>{
         rainbowColor();
     })
@@ -133,7 +133,7 @@ rainbowButton();
 buttonSquares.addEventListener("click", () => {
     let sideNumbers = Number(prompt("How many squares per side do you want? "));
     if (sideNumbers > 100) {
-        alert("Try another number. 100 squares per side is too many!")
+        alert("Try another number. 100 squares per side is the limit!")
     } else {
         deleteGrid();
         createGrid(sideNumbers);
@@ -142,7 +142,7 @@ buttonSquares.addEventListener("click", () => {
     }
 });
 
-// STYLE CODE
+// tittle CODE
 
 const title = document.createElement('h1');
 title.textContent = "ETCH-A-SKETCH";

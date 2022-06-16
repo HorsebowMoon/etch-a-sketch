@@ -1,6 +1,13 @@
+body {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 50px;
+
+}
+
 #board {
-    height: 400px;
-    width: 400px;
+    height: 500px;
+    width: 500px;
     border: 1px solid black;
     display: flex;
     flex-direction: column;
@@ -16,5 +23,14 @@
     width: auto;
     height: auto;
     flex-grow: 1;
+}
+
+button {
+    width: fit-content;
+}
+
+.buttonRow {
+    display: flex;
+    gap: 10px;
 }
 

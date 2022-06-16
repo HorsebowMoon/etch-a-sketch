@@ -2,6 +2,7 @@ body {
     display: flex;
     flex-direction: column-reverse;
     gap: 50px;
+    align-items: center;
 
 }
 

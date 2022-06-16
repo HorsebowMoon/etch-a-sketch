@@ -38,6 +38,26 @@ function colorGrid(){
 });
 }
 
+function clearGrid(){
+    const squares = document.querySelectorAll("div.square");
+    buttonClear.addEventListener("click", () => {
+        squares.forEach((square) => {
+            square.style.backgroundColor = "white";
+        });
+        
+    });
+}
+
+function resetGrid(){
+    resetButton.addEventListener("click", () => {
+        deleteGrid()
+        createGrid(16);
+        colorGrid();
+        clearGrid();
+    })
+    
+}
+
 //variables
 
 const buttonRow = document.createElement('div');
@@ -50,23 +70,34 @@ buttonSquares.textContent = "click me!"
 const buttonClear = document.createElement('button');
 buttonClear.textContent = "clear board"
 
+const resetButton = document.createElement('button');
+resetButton.textContent = "reset"
+
 buttonRow.appendChild(buttonSquares);
 buttonRow.appendChild(buttonClear);
+buttonRow.appendChild(resetButton);
 
 const board = document.getElementById("board");
+
 
 
 //code
 
 createGrid(16);
-
-
-
 colorGrid();
+clearGrid();
+resetGrid();
+
+
 
 buttonSquares.addEventListener("click", () => {
     let sideNumbers = Number(prompt("How many squares per side do you want? "));
-    deleteGrid();
-    createGrid(sideNumbers);
-    colorGrid();
+    if (sideNumbers > 100) {
+        alert("Try another number. 100 squares per side is too many!")
+    } else {
+        deleteGrid();
+        createGrid(sideNumbers);
+        colorGrid();
+        clearGrid();
+    }
 });

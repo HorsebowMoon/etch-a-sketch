@@ -94,7 +94,7 @@ buttonRow.setAttribute("class", "buttonRow");
 document.body.append(buttonRow);
 
 const buttonSquares = document.createElement('button');
-buttonSquares.textContent = "squares number";
+buttonSquares.textContent = "number of squares";
 
 const buttonClear = document.createElement('button');
 buttonClear.textContent = "clear board";

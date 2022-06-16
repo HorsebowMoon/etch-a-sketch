@@ -11,7 +11,7 @@
     flex-grow: 1;
 }
 
-.line div{
+.square{
     border: 1px solid black;
     width: auto;
     height: auto;

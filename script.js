@@ -1,5 +1,5 @@
 //functions
-function createLine(number){
+function createLine(number){ //Gride line
     let line = document.createElement("div");
     line.setAttribute("class", "line");
 
@@ -12,13 +12,13 @@ function createLine(number){
     board.appendChild(line);
 }
 
-function createGrid(number){
+function createGrid(number){ //Whole grid
     for (let i = 0; i < number; i++){
         createLine(number);
     };
 }
 
-function deleteGrid() {
+function deleteGrid() { //deletes every line before setting new ones
     let board = document.getElementById("board");
     let first = board.firstElementChild;
     while (first) {
@@ -27,7 +27,7 @@ function deleteGrid() {
     }
 }
 
-function colorGrid(){
+function blackColorGrid(){ //changes squares color to black
     const squares = document.querySelectorAll("div.square");
 
     squares.forEach((square) => {
@@ -38,7 +38,15 @@ function colorGrid(){
 });
 }
 
-function clearGrid(){
+function blackMode(){
+    blackColorButton.addEventListener("click", () => {
+        blackColorGrid()
+    });
+}
+
+
+
+function clearGrid(){ //turns squares back to white
     const squares = document.querySelectorAll("div.square");
     buttonClear.addEventListener("click", () => {
         squares.forEach((square) => {
@@ -48,14 +56,35 @@ function clearGrid(){
     });
 }
 
-function resetGrid(){
+function resetGrid(){ //turns the grid back to 16x16
     resetButton.addEventListener("click", () => {
         deleteGrid()
         createGrid(16);
-        colorGrid();
+        blackColorGrid();
         clearGrid();
     })
     
+}
+
+function randomRGBA(){
+    let o = Math.round, r = Math.random, s = 255;
+    return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
+}
+
+function rainbowColor(){
+    const squares = document.querySelectorAll('div.square');
+    
+    squares.forEach((square) => {
+        square.addEventListener("mouseover", () => {
+            square.style.backgroundColor = randomRGBA();
+        })
+    })
+}
+
+function rainbowButton(){
+    rainbowColorButton.addEventListener("click", () =>{
+        rainbowColor();
+    })
 }
 
 //variables
@@ -65,29 +94,40 @@ buttonRow.setAttribute("class", "buttonRow");
 document.body.append(buttonRow);
 
 const buttonSquares = document.createElement('button');
-buttonSquares.textContent = "click me!"
+buttonSquares.textContent = "squares number";
 
 const buttonClear = document.createElement('button');
-buttonClear.textContent = "clear board"
+buttonClear.textContent = "clear board";
 
 const resetButton = document.createElement('button');
-resetButton.textContent = "reset"
+resetButton.textContent = "reset";
+
+const rainbowColorButton = document.createElement('button');
+rainbowColorButton.textContent = "rainbow mode";
+
+const blackColorButton = document.createElement('button');
+blackColorButton.textContent = "black mode";
 
 buttonRow.appendChild(buttonSquares);
 buttonRow.appendChild(buttonClear);
 buttonRow.appendChild(resetButton);
+buttonRow.appendChild(blackColorButton);
+buttonRow.appendChild(rainbowColorButton)
 
 const board = document.getElementById("board");
 
+function defaultGrid(){
+    createGrid(16);
+    blackColorGrid();
+}
 
+//GRID CODE
 
-//code
-
-createGrid(16);
-colorGrid();
+defaultGrid()
 clearGrid();
 resetGrid();
-
+blackMode();
+rainbowButton();
 
 
 buttonSquares.addEventListener("click", () => {
@@ -97,7 +137,14 @@ buttonSquares.addEventListener("click", () => {
     } else {
         deleteGrid();
         createGrid(sideNumbers);
-        colorGrid();
         clearGrid();
+        blackColorGrid();
     }
 });
+
+// STYLE CODE
+
+const title = document.createElement('h1');
+title.textContent = "ETCH-A-SKETCH";
+document.body.appendChild(title);
+
